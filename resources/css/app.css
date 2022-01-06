@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none !important;
+}
+
+.ck-editor {
+    @apply !pt-2 prose max-w-full;
+}
+
+.ck-content {
+    min-height: 300px;
+}
+
+.prose :not(pre) > code.language-text {
+    white-space: pre-line;
+}
+
+nav.vue-fixed-header--isFixed {
+    @apply fixed inset-x-0;
+}
+
+#menu-toggle:checked + #menu {
+    @apply flex;
+}
