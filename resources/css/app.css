@@ -25,3 +25,7 @@ nav.vue-fixed-header--isFixed {
 #menu-toggle:checked + #menu {
     @apply flex;
 }
+
+.prose{
+    @apply max-w-none;
+}
