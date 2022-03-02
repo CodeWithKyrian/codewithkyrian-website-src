@@ -120,8 +120,7 @@
         </script>
     @endpush
     @push('inline-scripts')
-        {{-- <script src="{{ asset('js/ckeditor.js') }}"></script> --}}
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script src="https://cdn.tiny.cloud/1/byoo8lkegdcant8pttreb6rizp3sm5hqw61h42nvs2eu73u4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 
         <script>
