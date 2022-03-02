@@ -12719,6 +12719,17 @@
                     /**
          * 
          *
+         * @see \Spatie\Feed\FeedServiceProvider::registerRouteMacro()
+         * @param mixed $baseUrl
+         * @static 
+         */ 
+        public static function feeds($baseUrl = '')
+        {
+                        return \Illuminate\Routing\Router::feeds($baseUrl);
+        }
+                    /**
+         * 
+         *
          * @see \Laravel\Ui\AuthRouteMethods::auth()
          * @param mixed $options
          * @static 
@@ -16022,20 +16033,6 @@
      * 
      *
      */ 
-        class Js {
-         
-    }
-            /**
-     * 
-     *
-     */ 
-        class Str {
-         
-    }
-            /**
-     * 
-     *
-     */ 
         class Collection {
                     /**
          * 
@@ -16047,6 +16044,48 @@
         {
                         return \Illuminate\Support\Collection::debug();
         }
+                    /**
+         * 
+         *
+         * @see \Codewithkyrian\LaravelPosition\LaravelPositionServiceProvider::boot()
+         * @param mixed $key
+         * @param string|null $returnKey
+         * @param bool|null $showTotal
+         * @param string|null $joinText
+         * @static 
+         */ 
+        public static function rankBy($key, $returnKey = null, $showTotal = null, $joinText = null)
+        {
+                        return \Illuminate\Support\Collection::rankBy($key, $returnKey, $showTotal, $joinText);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\AppServiceProvider::boot()
+         * @param mixed $perPage
+         * @param mixed $total
+         * @param mixed $page
+         * @param mixed $pageName
+         * @static 
+         */ 
+        public static function paginate($perPage, $total = null, $page = null, $pageName = 'page')
+        {
+                        return \Illuminate\Support\Collection::paginate($perPage, $total, $page, $pageName);
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Js {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Str {
          
     }
      
@@ -18209,6 +18248,481 @@
      
 }
 
+    namespace romanzipp\Seo\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Seo {
+                    /**
+         * Create service instance.
+         *
+         * @return self 
+         * @static 
+         */ 
+        public static function make()
+        {
+                        return \romanzipp\Seo\Services\SeoService::make();
+        }
+                    /**
+         * Get config.
+         *
+         * @return \romanzipp\Seo\Services\array<string, mixed>
+         * @static 
+         */ 
+        public static function getConfig()
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->getConfig();
+        }
+                    /**
+         * Fluent section setter.
+         *
+         * @param string $section
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function section($section)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->section($section);
+        }
+                    /**
+         * Get structs.
+         *
+         * @return \romanzipp\Seo\Structs\Struct[] 
+         * @static 
+         */ 
+        public static function getStructs()
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->getStructs();
+        }
+                    /**
+         * Get Struct by class.
+         *
+         * @param string $class
+         * @return \romanzipp\Seo\Structs\Struct|null 
+         * @static 
+         */ 
+        public static function getStruct($class)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->getStruct($class);
+        }
+                    /**
+         * Set structs.
+         *
+         * @param \romanzipp\Seo\Structs\Struct[] $structCollection
+         * @static 
+         */ 
+        public static function setStructCollection($structCollection)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->setStructCollection($structCollection);
+        }
+                    /**
+         * Remove a struct from the collection by given array index.
+         *
+         * @param int $index
+         * @static 
+         */ 
+        public static function unsetStruct($index)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->unsetStruct($index);
+        }
+                    /**
+         * Removes all structs from service instance.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function clearStructs()
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        $instance->clearStructs();
+        }
+                    /**
+         * Append a given struct. This is an internal method called by all add/set public methods
+         * which also sets the current section to the struct.
+         *
+         * @param \romanzipp\Seo\Structs\Struct $struct
+         * @static 
+         */ 
+        public static function appendStruct($struct)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->appendStruct($struct);
+        }
+                    /**
+         * Add struct.
+         *
+         * @param \romanzipp\Seo\Structs\Struct $struct
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function add($struct)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->add($struct);
+        }
+                    /**
+         * Add a given Struct if the given condition is true.
+         *
+         * @param bool $boolean
+         * @param \romanzipp\Seo\Structs\Struct $struct
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function addIf($boolean, $struct)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->addIf($boolean, $struct);
+        }
+                    /**
+         * Add many structs.
+         *
+         * @param \romanzipp\Seo\Structs\Struct[] $structs
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function addMany($structs)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->addMany($structs);
+        }
+                    /**
+         * Add structs from array format.
+         *
+         * @param \romanzipp\Seo\Services\array<string,  mixed> $data
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function addFromArray($data)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->addFromArray($data);
+        }
+                    /**
+         * Add hook to given struct class. This is just an
+         * alias for the Struct::hook() method.
+         *
+         * @param string $structClass
+         * @param \romanzipp\Seo\Helpers\Hook $hook
+         * @return void 
+         * @static 
+         */ 
+        public static function hook($structClass, $hook)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        $instance->hook($structClass, $hook);
+        }
+                    /**
+         * 
+         *
+         * @return \romanzipp\Seo\Conductors\MixManifestConductor 
+         * @static 
+         */ 
+        public static function mix()
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->mix();
+        }
+                    /**
+         * 
+         *
+         * @return \romanzipp\Seo\Conductors\RenderConductor 
+         * @static 
+         */ 
+        public static function render()
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->render();
+        }
+                    /**
+         * 
+         *
+         * @return \romanzipp\Seo\Conductors\ArrayFormatConductor 
+         * @static 
+         */ 
+        public static function arrayFormat()
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->arrayFormat();
+        }
+                    /**
+         * Remove struct from existing structs.
+         *
+         * @param \romanzipp\Seo\Structs\Struct $struct
+         * @return void 
+         * @static 
+         */ 
+        public static function removeDuplicateStruct($struct)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        $instance->removeDuplicateStruct($struct);
+        }
+                    /**
+         * Get matching struct duplicate.
+         *
+         * @param \romanzipp\Seo\Structs\Struct $struct
+         * @return \romanzipp\Seo\Services\(\romanzipp\Seo\Structs\Struct|int|\romanzipp\Seo\Services\null)[]|null 
+         * @static 
+         */ 
+        public static function getDuplicateStruct($struct)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->getDuplicateStruct($struct);
+        }
+                    /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+                        \romanzipp\Seo\Services\SeoService::macro($name, $macro);
+        }
+                    /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @param bool $replace
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin, $replace = true)
+        {
+                        \romanzipp\Seo\Services\SeoService::mixin($mixin, $replace);
+        }
+                    /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+                        return \romanzipp\Seo\Services\SeoService::hasMacro($name);
+        }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {
+                        \romanzipp\Seo\Services\SeoService::flushMacros();
+        }
+                    /**
+         * Get spatie/schema-org types.
+         *
+         * @return \Spatie\SchemaOrg\Type[] 
+         * @static 
+         */ 
+        public static function getSchemes()
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->getSchemes();
+        }
+                    /**
+         * Add spatie/schema-org object.
+         *
+         * @param \romanzipp\Seo\Services\Type $schema schema.org Type
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function addSchema($schema)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->addSchema($schema);
+        }
+                    /**
+         * Set array of spatie/schema-org objects.
+         *
+         * @param \Spatie\SchemaOrg\Type[] $schemes
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function setSchemes($schemes)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->setSchemes($schemes);
+        }
+                    /**
+         * Add a list of breadcrumbs.
+         *
+         * @param \romanzipp\Seo\Services\array<array<string,  string>> $crumbs
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function addSchemaBreadcrumbs($crumbs)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->addSchemaBreadcrumbs($crumbs);
+        }
+                    /**
+         * Add title.
+         *
+         * @param string|null $title
+         * @param bool $escape
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function title($title = null, $escape = true)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->title($title, $escape);
+        }
+                    /**
+         * Add description.
+         *
+         * @param string|null $description
+         * @param bool $escape
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function description($description = null, $escape = true)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->description($description, $escape);
+        }
+                    /**
+         * Add image.
+         *
+         * @param string|null $image
+         * @param bool $escape
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function image($image = null, $escape = true)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->image($image, $escape);
+        }
+                    /**
+         * Add name-content Meta struct.
+         *
+         * @param string $name
+         * @param mixed|null $content
+         * @param bool $escape
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function meta($name, $content = null, $escape = true)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->meta($name, $content, $escape);
+        }
+                    /**
+         * Add Twitter struct.
+         *
+         * @param string $name
+         * @param mixed|null $content
+         * @param bool $escape
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function twitter($name, $content = null, $escape = true)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->twitter($name, $content, $escape);
+        }
+                    /**
+         * Add OpenGraph struct.
+         *
+         * @param string $property
+         * @param mixed|null $content
+         * @param bool $escape
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function og($property, $content = null, $escape = true)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->og($property, $content, $escape);
+        }
+                    /**
+         * Add the meta charset struct.
+         *
+         * @param string $charset
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function charset($charset = 'utf-8')
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->charset($charset);
+        }
+                    /**
+         * Add the meta viewport struct.
+         *
+         * @param string $viewport
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function viewport($viewport = 'width=device-width, initial-scale=1')
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->viewport($viewport);
+        }
+                    /**
+         * Add the canonical struct.
+         *
+         * @param string $canonical
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function canonical($canonical)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->canonical($canonical);
+        }
+                    /**
+         * Add the CSRF token meta struct.
+         *
+         * @param string|null $token
+         * @return \romanzipp\Seo\Services\SeoService 
+         * @static 
+         */ 
+        public static function csrfToken($token = null)
+        {
+                        /** @var \romanzipp\Seo\Services\SeoService $instance */
+                        return $instance->csrfToken($token);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\SeoServiceProvider::boot()
+         * @static 
+         */ 
+        public static function getTitle()
+        {
+                        return \romanzipp\Seo\Services\SeoService::getTitle();
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\SeoServiceProvider::boot()
+         * @param string $value
+         * @static 
+         */ 
+        public static function customTag($value)
+        {
+                        return \romanzipp\Seo\Services\SeoService::customTag($value);
+        }
+         
+    }
+     
+}
+
     namespace Spatie\SignalAwareCommand\Facades { 
             /**
      * 
@@ -18318,6 +18832,17 @@
                     /**
          * 
          *
+         * @see \Spatie\Feed\FeedServiceProvider::registerRouteMacro()
+         * @param mixed $baseUrl
+         * @static 
+         */ 
+        public static function feeds($baseUrl = '')
+        {
+                        return \Illuminate\Routing\Router::feeds($baseUrl);
+        }
+                    /**
+         * 
+         *
          * @see \Laravel\Ui\AuthRouteMethods::auth()
          * @param mixed $options
          * @static 
@@ -18361,6 +18886,38 @@
      
 }
 
+    namespace romanzipp\Seo\Services { 
+            /**
+     * 
+     *
+     */ 
+        class SeoService {
+                    /**
+         * 
+         *
+         * @see \App\Providers\SeoServiceProvider::boot()
+         * @static 
+         */ 
+        public static function getTitle()
+        {
+                        return \romanzipp\Seo\Services\SeoService::getTitle();
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\SeoServiceProvider::boot()
+         * @param string $value
+         * @static 
+         */ 
+        public static function customTag($value)
+        {
+                        return \romanzipp\Seo\Services\SeoService::customTag($value);
+        }
+         
+    }
+     
+}
+
 
 namespace  { 
             class App extends \Illuminate\Support\Facades\App {}
@@ -18371,6 +18928,7 @@ namespace  {
             class Broadcast extends \Illuminate\Support\Facades\Broadcast {}
             class Bus extends \Illuminate\Support\Facades\Bus {}
             class Cache extends \Illuminate\Support\Facades\Cache {}
+            class Collection extends \Illuminate\Support\Collection {}
             class Config extends \Illuminate\Support\Facades\Config {}
             class Cookie extends \Illuminate\Support\Facades\Cookie {}
             class Crypt extends \Illuminate\Support\Facades\Crypt {}
@@ -21816,6 +22374,7 @@ namespace  {
             class Socialite extends \Laravel\Socialite\Facades\Socialite {}
             class Form extends \Collective\Html\FormFacade {}
             class Html extends \Collective\Html\HtmlFacade {}
+            class Seo extends \romanzipp\Seo\Facades\Seo {}
             class Signal extends \Spatie\SignalAwareCommand\Facades\Signal {}
      
 }

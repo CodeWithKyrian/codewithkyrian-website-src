@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db6ef5b4a6dc133898a1fd4d2c059836",
+    "content-hash": "9ff22f68f9c679aa6b92a07c5631f0fd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -121,6 +121,63 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
+        },
+        {
+            "name": "codewithkyrian/laravel_position",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CodeWithKyrian/laravel-position.git",
+                "reference": "a7fb0119fa4902768d504dca7893a91efdd56a4f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CodeWithKyrian/laravel-position/zipball/a7fb0119fa4902768d504dca7893a91efdd56a4f",
+                "reference": "a7fb0119fa4902768d504dca7893a91efdd56a4f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Codewithkyrian\\LaravelPosition\\LaravelPositionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Codewithkyrian\\LaravelPosition\\": "src/"
+                },
+                "files": [
+                    "src/Helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyrian Obikwelu",
+                    "email": "Koshnawaza@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple extensible laravel collection macro that evaluates the position or ranking of items in a collection and appends the position to each item with a key of your choice.",
+            "homepage": "https://github.com/codewithkyrian/laravel-position",
+            "keywords": [
+                "CodeWithKyrian",
+                "laravel",
+                "laravel-position"
+            ],
+            "support": {
+                "issues": "https://github.com/CodeWithKyrian/laravel-position/issues",
+                "source": "https://github.com/CodeWithKyrian/laravel-position/tree/1.0.0"
+            },
+            "time": "2022-01-11T22:59:28+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",

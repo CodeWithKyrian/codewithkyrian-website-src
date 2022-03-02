@@ -75,7 +75,7 @@
                                         <img src="{{ asset('img/placeholder.png') }}" alt="{{ $post->title }}">
                                     @endif
                                 </div>
-                                <div class="prose text-gray-900 font-thin">
+                                <div v-pre class="prose text-gray-900 font-thin">
                                     {!! $post->content !!}
                                 </div>
                             </div>
