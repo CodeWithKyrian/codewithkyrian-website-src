@@ -15,6 +15,7 @@ class Media extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'url' => url($this->getUrl()),
+            'location' => url($this->getUrl()),
             'thumb_url' => url($this->getUrl('thumb')),
         ];
     }

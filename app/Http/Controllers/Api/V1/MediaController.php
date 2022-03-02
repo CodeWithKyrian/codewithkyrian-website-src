@@ -32,23 +32,31 @@ class MediaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(MediaLibraryRequest $request): MediaResource
+    public function store(MediaLibraryRequest $request)
     {
         // $this->authorize('store', Media::class);
 
-        $image = $request->file('upload');
+        $image = $request->file('file');
         $name = $image->getClientOriginalName();
 
         if ($request->filled('name')) {
             $name = $request->input('name');
         }
 
-        return new MediaResource(
-            $this->mediaLibrary
+        $media = $this->mediaLibrary
                         ->addMedia($image)
                         ->usingName($name)
-                        ->toMediaCollection()
-        );
+                        ->toMediaCollection();
+
+        // return new MediaResource(
+        //     $this->mediaLibrary
+        //                 ->addMedia($image)
+        //                 ->usingName($name)
+        //                 ->toMediaCollection()
+        // );
+        return response()->json([
+            'location' => $media->getFullUrl()
+        ]);
     }
 
     /**

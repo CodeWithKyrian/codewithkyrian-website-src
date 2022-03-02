@@ -135,6 +135,9 @@
                 toolbar: 'code codesample | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
                     'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
                     'forecolor backcolor emoticons | help',
+                images_upload_url: route('media.store'),
+                images_upload_credentials: true,
+                image_caption: true,
                 codesample_languages: [{
                         text: 'HTML/XML',
                         value: 'markup'
@@ -181,18 +184,6 @@
                     }
                 ],
             });
-            // ClassicEditor
-            //     .create(document.querySelector('#editor'), {
-            //         simpleUpload: {
-            //             uploadUrl: route('media.store'),
-            //             headers: {
-            //                 'X-CSRF-TOKEN': 'CSRF-Token',
-            //             }
-            //         }
-            //     })
-            //     .catch(error => {
-            //         console.error(error);
-            //     });
         </script>
     @endpush
     </x-app-layout>
