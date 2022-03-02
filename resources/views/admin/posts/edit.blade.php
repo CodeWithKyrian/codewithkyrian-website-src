@@ -23,7 +23,7 @@
                         <div class="py-2">
                             <label class="font-medium" for="description">Description</label>
                             <textarea required rows="2" name="description"
-                                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded focus:border-blue-500 focus:ring-0 focus:outline-none">{{ $post->description}}</textarea>
+                                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded focus:border-blue-500 focus:ring-0 focus:outline-none">{{ $post->description }}</textarea>
                         </div>
                         <div class="py-2">
                             <label class="font-medium" for="banner">Banner</label>
@@ -57,8 +57,9 @@
                                     <div class="font-medium">Save as Draft
                                     </div>
                                     <div class="relative  my-2">
-                                        <input id="is_draft" @if (!$post->posted_at) checked @endif type="checkbox" type="checkbox"
-                                            name="featured" class="hidden peer" x-model="is_draft" />
+                                        <input id="is_draft" @if (!$post->posted_at) checked @endif
+                                            type="checkbox" type="checkbox" name="featured" class="hidden peer"
+                                            x-model="is_draft" />
                                         <div
                                             class="bg-gray-200 w-20 h-10 rounded-full shadow-inner transition-all duration-300 ease-in-out peer-checked:bg-blue-500">
                                         </div>
@@ -119,20 +120,80 @@
         </script>
     @endpush
     @push('inline-scripts')
-        <script src="{{ asset('js/ckeditor.js') }}"></script>
+        {{-- <script src="{{ asset('js/ckeditor.js') }}"></script> --}}
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+
         <script>
-            ClassicEditor
-                .create(document.querySelector('#editor'), {
-                    simpleUpload: {
-                        uploadUrl: route('media.store'),
-                        headers: {
-                            'X-CSRF-TOKEN': 'CSRF-Token',
-                        }
+            tinymce.init({
+                selector: '#editor',
+                height: 350,
+                plugins: [
+                    'advlist codesample autolink link image lists charmap print preview hr anchor pagebreak',
+                    'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                    'table emoticons template paste help'
+                ],
+                toolbar: 'code codesample | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                    'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                    'forecolor backcolor emoticons | help',
+                codesample_languages: [{
+                        text: 'HTML/XML',
+                        value: 'markup'
+                    },
+                    {
+                        text: 'JavaScript',
+                        value: 'javascript'
+                    },
+                    {
+                        text: 'CSS',
+                        value: 'css'
+                    },
+                    {
+                        text: 'PHP',
+                        value: 'php'
+                    },
+                    {
+                        text: 'Blade',
+                        value: 'blade'
+                    },
+                    {
+                        text: 'Ruby',
+                        value: 'ruby'
+                    },
+                    {
+                        text: 'Python',
+                        value: 'python'
+                    },
+                    {
+                        text: 'Java',
+                        value: 'java'
+                    },
+                    {
+                        text: 'C',
+                        value: 'c'
+                    },
+                    {
+                        text: 'C#',
+                        value: 'csharp'
+                    },
+                    {
+                        text: 'C++',
+                        value: 'cpp'
                     }
-                })
-                .catch(error => {
-                    console.error(error);
-                });
+                ],
+            });
+            // ClassicEditor
+            //     .create(document.querySelector('#editor'), {
+            //         simpleUpload: {
+            //             uploadUrl: route('media.store'),
+            //             headers: {
+            //                 'X-CSRF-TOKEN': 'CSRF-Token',
+            //             }
+            //         }
+            //     })
+            //     .catch(error => {
+            //         console.error(error);
+            //     });
         </script>
     @endpush
     </x-app-layout>
