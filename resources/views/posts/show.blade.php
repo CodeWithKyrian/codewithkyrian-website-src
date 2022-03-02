@@ -99,6 +99,7 @@
     {!! app('Tightenco\Ziggy\BladeRouteGenerator')->generate() !!}
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-blade/dist/blade.min.js"></script>
     <script>
         hljs.highlightAll();
     </script>
