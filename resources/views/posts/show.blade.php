@@ -3,7 +3,7 @@
 
 <head>
     {{ seo()->render() }}
-    
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css">
@@ -75,7 +75,7 @@
                                         <img src="{{ asset('img/placeholder.png') }}" alt="{{ $post->title }}">
                                     @endif
                                 </div>
-                                <div v-pre class="prose text-gray-900 font-thin">
+                                <div v-pre id="postContent" class="prose text-gray-900 font-thin">
                                     {!! $post->content !!}
                                 </div>
                             </div>
@@ -100,8 +100,20 @@
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
     <script src="https://unpkg.com/highlightjs-blade/dist/blade.min.js"></script>
+    <script src="{{ asset('js/highlightjs-badge.min.js') }}"></script>
     <script>
         hljs.highlightAll();
+
+        window.addEventListener('load', (event) => {
+            var options = {
+                contentSelector: "#postContent",
+                copyIconClass: "code-copy",
+                checkIconClass: "code-check"
+            };
+
+            setTimeout(highlightJsBadge(options), 500);
+
+        });
     </script>
 </body>
 
